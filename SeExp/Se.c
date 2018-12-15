@@ -837,7 +837,7 @@ void main()
 	klee_make_symbolic(&NORRP181KS3_status, sizeof(NORRP181KS3_status), "NORRP181KS3_status");
 	klee_make_symbolic(&NORRP181KS3_value, sizeof(NORRP181KS3_value), "NORRP181KS3_value");
 	klee_make_symbolic(&NORRP186KS3_status, sizeof(NORRP186KS3_status), "NORRP186KS3_status");
-	klee_make_symbolic(&NORRP186KS3_value, sizeof(&NORRP186KS3_value), "&NORRP186KS3_value");
+	klee_make_symbolic(&NORRP186KS3_value, sizeof(NORRP186KS3_value), "&NORRP186KS3_value");
 	klee_make_symbolic(&NORRPF010AX35B01_status, sizeof(NORRPF010AX35B01_status), "NORRPF010AX35B01_status");
 	klee_make_symbolic(&NORRPF010AX35B01_value, sizeof(NORRPF010AX35B01_value), "NORRPF010AX35B01_value");
 	klee_make_symbolic(&NORRPF010AX35B02_status, sizeof(NORRPF010AX35B02_status), "NORRPF010AX35B02_status");
