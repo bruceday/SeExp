@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include "klee/klee.h"
+//#include "klee/klee.h"
 
 #define NO_FAULT 0
 #define FAULT 1
@@ -557,8 +557,8 @@ void Se(
 
 
 
-	kcg_bool N0RRPF010AX31B01_status;
-	kcg_bool N0RRPF010AX31B01_value;
+	//kcg_bool N0RRPF010AX31B01_status;
+	//kcg_bool N0RRPF010AX31B01_value;
 	kcg_bool N0RRPF010AX13B01_status;
 	kcg_bool N0RRPF010AX13B01_value;
 	kcg_bool N0RRPF010AX23B01_status;
