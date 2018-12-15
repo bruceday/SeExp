@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Se.cpp" />
+    <ClCompile Include="Se.c" />
     <ClCompile Include="SeTest.c" />
   </ItemGroup>
   <ItemGroup>
