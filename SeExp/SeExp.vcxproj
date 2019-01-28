@@ -115,11 +115,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dcs.c" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="Se.c" />
     <ClCompile Include="SeTest.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dcs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
