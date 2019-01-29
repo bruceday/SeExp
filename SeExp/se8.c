@@ -1,5 +1,4 @@
 #include<stdio.h>
-//#include"dcs.h"
 #include "klee/klee.h"
 
 #define NO_FAULT 0
@@ -419,8 +418,90 @@ void FORCE_L_B_POL_TIME_INDEPENDENT_binary(
 	}
 }
 
+void FSF_POL_TIME_INDEPENDENT_binary(
+	kcg_bool I1_status,
+	kcg_bool I1_value,
+	kcg_bool I2_status,
+	kcg_bool I2_value,
+	kcg_bool O1_status,
+	kcg_bool O1_value
+)
+{
+	O1_value = I2_value;
+	if (I2_status | I1_value | I1_status) {
+		O1_status = FAULT;
+	}
+	else
+	{
+		O1_status = NO_FAULT;
+	}
+}
+
+void SeExp(
+	kcg_bool I1_status,
+	kcg_bool I1_value,
+	kcg_bool I2_status,
+	kcg_bool I2_value,
+	kcg_bool I3_status,
+	kcg_bool I3_value,
+	kcg_bool I4_status,
+	kcg_bool I4_value,
+	kcg_bool I5_status,
+	kcg_bool I5_value,
+	kcg_bool I6_status,
+	kcg_bool I6_value,
+	kcg_bool I7_status,
+	kcg_bool I7_value,
+	kcg_bool I8_status,
+	kcg_bool I8_value,
+	kcg_bool I9_status,
+	kcg_bool I9_value,
+	kcg_bool I10_status,
+	kcg_bool I10_value,
+	kcg_bool I11_status,
+	kcg_bool I11_value,
+	kcg_bool O1_status,
+	kcg_bool O1_value,
+	kcg_bool O2_status,
+	kcg_bool O2_value,
+	kcg_bool O3_status,
+	kcg_bool O3_value,
+	kcg_bool O4_status,
+	kcg_bool O4_value,
+	kcg_bool O5_status,
+	kcg_bool O5_value,
+	kcg_bool O6_status,
+	kcg_bool O6_value,
+	kcg_bool O7_status,
+	kcg_bool O7_value,
+	kcg_bool O8_status,
+	kcg_bool O8_value,
+	kcg_bool O9_status,
+	kcg_bool O9_value,
+	kcg_bool O10_status,
+	kcg_bool O10_value,
+	kcg_bool O11_status,
+	kcg_bool O11_value,
+	kcg_bool O12_status,
+	kcg_bool O12_value,
+	kcg_int S1,
+	kcg_int S2,
+	kcg_int S3
+)
+{
+	FORCE_L_B_POL_TIME_INDEPENDENT_binary(I1_status, I1_value, I2_status, I2_value, S1, O1_status, O1_value);
+	Vote_2_4_RA_BIN_TIME_INDEPENDENT(O1_status, O1_value, I3_status, I3_value, I4_status, I4_value, I5_status, I5_value, O2_status, O2_value);
+	FSF_POL_TIME_INDEPENDENT_binary(O2_status, O2_value, O3_status, O3_value, O4_status, O4_value);
+	FORCE_L_B_POL_TIME_INDEPENDENT_binary(O3_status, O3_value, O4_status, O4_value, S2, O5_status, O5_value);
+	Vote_2_4_RA_BIN_TIME_INDEPENDENT(O5_status, O5_value, I6_status, I6_value, I7_status, I7_value, I8_status, I8_value, O6_status, O6_value);
+	FSF_POL_TIME_INDEPENDENT_binary(O6_status, O6_value, O7_status, O7_value, O8_status, O8_value);
+	FORCE_L_B_POL_TIME_INDEPENDENT_binary(O7_status, O7_value, O8_status, O8_value, S3, O9_status, O9_value);
+	Vote_2_4_RA_BIN_TIME_INDEPENDENT(O9_status, O9_value, O9_status, O9_value, I10_status, I10_value, I11_status, I11_value,  O10_status, O10_value);
+	FSF_POL_TIME_INDEPENDENT_binary(O10_status, O10_value, O11_status, O11_value, O12_status, O12_value);
+}
+
 int main()
-{	
+{
 	kcg_bool I1_status;
 	kcg_bool I1_value;
 	kcg_bool I2_status;
@@ -429,20 +510,99 @@ int main()
 	kcg_bool I3_value;
 	kcg_bool I4_status;
 	kcg_bool I4_value;
+	kcg_bool I5_status;
+	kcg_bool I5_value;
+	kcg_bool I6_status;
+	kcg_bool I6_value;
+	kcg_bool I7_status;
+	kcg_bool I7_value;
+	kcg_bool I8_status;
+	kcg_bool I8_value;
+	kcg_bool I9_status;
+	kcg_bool I9_value;
+	kcg_bool I10_status;
+	kcg_bool I10_value;
+	kcg_bool I11_status;
+	kcg_bool I11_value;
 	kcg_bool O1_status;
 	kcg_bool O1_value;
+	kcg_bool O2_status;
+	kcg_bool O2_value;
+	kcg_bool O3_status;
+	kcg_bool O3_value;
+	kcg_bool O4_status;
+	kcg_bool O4_value;
+	kcg_bool O5_status;
+	kcg_bool O5_value;
+	kcg_bool O6_status;
+	kcg_bool O6_value;
+	kcg_bool O7_status;
+	kcg_bool O7_value;
+	kcg_bool O8_status;
+	kcg_bool O8_value;
+	kcg_bool O9_status;
+	kcg_bool O9_value;
+	kcg_bool O10_status;
+	kcg_bool O10_value;
+	kcg_bool O11_status;
+	kcg_bool O11_value;
+	kcg_bool O12_status;
+	kcg_bool O12_value;
+	kcg_int S1;
+	kcg_int S2;
+	kcg_int S3;
+
 	klee_make_symbolic(&I1_status, sizeof(I1_status), "I1_status");
 	klee_make_symbolic(&I1_value, sizeof(I1_value), "I1_value");
 	klee_make_symbolic(&I2_status, sizeof(I2_status), "I2_status");
 	klee_make_symbolic(&I2_value, sizeof(I2_value), "I2_value");
-	klee_make_symbolic(&I2_status, sizeof(I3_status), "I3_status");
-	klee_make_symbolic(&I2_value, sizeof(I3_value), "I3_value");
-	klee_make_symbolic(&I2_status, sizeof(I4_status), "I4_status");
-	klee_make_symbolic(&I2_value, sizeof(I4_value), "I4_value");
+	klee_make_symbolic(&I3_status, sizeof(I3_status), "I3_status");
+	klee_make_symbolic(&I3_value, sizeof(I3_value), "I3_value");
+	klee_make_symbolic(&I4_status, sizeof(I4_status), "I4_status");
+	klee_make_symbolic(&I4_value, sizeof(I4_value), "I4_value");
+	klee_make_symbolic(&I5_status, sizeof(I5_status), "I5_status");
+	klee_make_symbolic(&I5_value, sizeof(I5_value), "I5_value");
+	klee_make_symbolic(&I6_status, sizeof(I6_status), "I6_status");
+	klee_make_symbolic(&I6_value, sizeof(I6_value), "I6_value");
+	klee_make_symbolic(&I7_status, sizeof(I7_status), "I7_status");
+	klee_make_symbolic(&I7_value, sizeof(I7_value), "I7_value");
+	klee_make_symbolic(&I8_status, sizeof(I8_status), "I8_status");
+	klee_make_symbolic(&I8_value, sizeof(I8_value), "I8_value");
+	klee_make_symbolic(&I9_status, sizeof(I9_status), "I9_status");
+	klee_make_symbolic(&I9_value, sizeof(I9_value), "I9_value");
+	klee_make_symbolic(&I10_status, sizeof(I10_status), "I10_status");
+	klee_make_symbolic(&I10_value, sizeof(I10_value), "I10_value");
+	klee_make_symbolic(&I11_status, sizeof(I11_status), "I11_status");
+	klee_make_symbolic(&I11_value, sizeof(I11_value), "I11_value");
 	klee_make_symbolic(&O1_status, sizeof(O1_status), "O1_status");
 	klee_make_symbolic(&O1_value, sizeof(O1_value), "O1_value");
-	Vote_2_4_RA_BIN_TIME_INDEPENDENT(
-		I1_status,
+	klee_make_symbolic(&O2_status, sizeof(O2_status), "O2_status");
+	klee_make_symbolic(&O2_value, sizeof(O2_value), "O2_value");
+	klee_make_symbolic(&O3_status, sizeof(O3_status), "O3_status");
+	klee_make_symbolic(&O3_value, sizeof(O3_value), "O3_value");
+	klee_make_symbolic(&O4_status, sizeof(O4_status), "O4_status");
+	klee_make_symbolic(&O4_value, sizeof(O4_value), "O4_value");
+	klee_make_symbolic(&O5_status, sizeof(O5_status), "O5_status");
+	klee_make_symbolic(&O5_value, sizeof(O5_value), "O5_value");
+	klee_make_symbolic(&O6_status, sizeof(O6_status), "O6_status");
+	klee_make_symbolic(&O6_value, sizeof(O6_value), "O6_value");
+	klee_make_symbolic(&O7_status, sizeof(O7_status), "O7_status");
+	klee_make_symbolic(&O7_value, sizeof(O7_value), "O7_value");
+	klee_make_symbolic(&O8_status, sizeof(O8_status), "O8_status");
+	klee_make_symbolic(&O8_value, sizeof(O8_value), "O8_value");
+	klee_make_symbolic(&O9_status, sizeof(O9_status), "O9_status");
+	klee_make_symbolic(&O9_value, sizeof(O9_value), "O9_value");
+	klee_make_symbolic(&O10_status, sizeof(O10_status), "O10_status");
+	klee_make_symbolic(&O10_value, sizeof(O10_value), "O10_value");
+	klee_make_symbolic(&O11_status, sizeof(O11_status), "O11_status");
+	klee_make_symbolic(&O11_value, sizeof(O11_value), "O11_value");
+	klee_make_symbolic(&O12_status, sizeof(O12_status), "O12_status");
+	klee_make_symbolic(&O12_value, sizeof(O12_value), "O12_value");
+	klee_make_symbolic(&S1, sizeof(S1), "S1");
+	klee_make_symbolic(&S2, sizeof(S2), "S2");
+	klee_make_symbolic(&S3, sizeof(S3), "S3");
+
+	SeExp(I1_status,
 		I1_value,
 		I2_status,
 		I2_value,
@@ -450,8 +610,47 @@ int main()
 		I3_value,
 		I4_status,
 		I4_value,
+		I5_status,
+		I5_value,
+		I6_status,
+		I6_value,
+		I7_status,
+		I7_value,
+		I8_status,
+		I8_value,
+		I9_status,
+		I9_value,
+		I10_status,
+		I10_value,
+		I11_status,
+		I11_value,
 		O1_status,
-		O1_value
-	);
+		O1_value,
+		O2_status,
+		O2_value,
+		O3_status,
+		O3_value,
+		O4_status,
+		O4_value,
+		O5_status,
+		O5_value,
+		O6_status,
+		O6_value,
+		O7_status,
+		O7_value,
+		O8_status,
+		O8_value,
+		O9_status,
+		O9_value,
+		O10_status,
+		O10_value,
+		O11_status,
+		O11_value,
+		O12_status,
+		O12_value,
+		S1,
+		S2,
+		S3);
+
 	return 0;
 }

@@ -24,7 +24,13 @@
     <ClCompile Include="dcs.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.c">
+    <ClCompile Include="se3.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="se6.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="se8.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,5 +43,8 @@
     <ClInclude Include="dcs.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="C:\Users\Administrator\Desktop\klee_command.txt" />
   </ItemGroup>
 </Project>
